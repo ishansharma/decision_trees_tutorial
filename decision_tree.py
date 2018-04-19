@@ -3,7 +3,6 @@ from sklearn import tree
 
 
 data = read_csv("data.csv")
-Y = data.Class
 
 data['Color'] = data['Color'].map({'Red': 0, 'Blue': 1})
 data['Brand'] = data['Brand'].map({'Snickers': 0, 'Kit Kat': 1})
@@ -11,6 +10,7 @@ data['Brand'] = data['Brand'].map({'Snickers': 0, 'Kit Kat': 1})
 predictors = ['Color', 'Brand']
 
 X = data[predictors]
+Y = data.Class
 
 decisionTreeClassifier = tree.DecisionTreeClassifier(criterion="entropy")
 dTree = decisionTreeClassifier.fit(X, Y)
